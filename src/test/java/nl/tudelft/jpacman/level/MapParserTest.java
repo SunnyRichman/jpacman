@@ -41,21 +41,7 @@ public class MapParserTest {
         map.add("############");
         mapParser.parseMap(map);
         Mockito.verify(levelFactory, Mockito.times(1)).createGhost();
-    }
-
-    @Test
-    public void testParseMapGood1() {
-        MockitoAnnotations.initMocks(this);
-        assertNotNull(boardFactory);
-        assertNotNull(levelFactory);
-        Mockito.when(levelFactory.createGhost()).thenReturn(blinky);
-        MapParser mapParser = new MapParser(levelFactory, boardFactory);
-        ArrayList<String> map = new ArrayList<>();
-        map.add("############");
-        map.add("#P        G#");
-        map.add("############");
-        mapParser.parseMap(map);
-        Mockito.verify(boardFactory, Mockito.times(1)).createGround();
+        Mockito.verify(boardFactory, Mockito.after(500)).createGround();
     }
     /**
      * Test for the parseMap method (bad map).
