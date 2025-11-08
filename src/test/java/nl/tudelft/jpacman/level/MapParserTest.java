@@ -41,7 +41,7 @@ public class MapParserTest {
         map.add("############");
         mapParser.parseMap(map);
         Mockito.verify(levelFactory, Mockito.times(1)).createGhost();
-        Mockito.verify(boardFactory, Mockito.after(500)).createGround();
+        Mockito.verify(boardFactory, Mockito.after(1200)).createGround();
     }
     /**
      * Test for the parseMap method (bad map).
